@@ -1,0 +1,56 @@
+<%- include('partials/head') %>
+  <body>
+       
+  <h1>no hay operaciones todavia </h1>
+<!--formulario de nueva operacion ( no manda datos no encuentro el error )-->  
+  <div class="container-form">
+  <h1> crear una operacion </h1>
+  <form action="/" method="POST" enctype="multipart/form-data" class="card card-body">
+    <div class="form-group">
+      <label for="Concepto">Concepto</label>
+      <input type="text" class="form-control" placeholder=" ingresar concepto"  name="Concepto" required />
+    </div>
+    <div class="form-group">
+      <label for="Monto">Monto</label>
+      <input type="text" class="form-control" placeholder="ingresar monto"  name="Monto" required />
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input type="text" class="form-control" placeholder="ingresar fecha"  name="Fecha" required />
+    </div><div class="form-group">
+      <label for="Tipo">Tipo</label>
+      <input type="text" class="form-control" placeholder="ingresar el  tipo" name="Tipo" required />
+    </div>
+        <div class="col-auto my-1" >
+            <button type="submit" class="btn btn-primary" >crear</button>
+          </div>
+  </form>
+ </div>
+ <!-- tabla de operaciones -->
+<div>
+    <table>
+    <!-- creo las columnas estaticas -->
+      <tr>
+      <th>Concepto</th>
+      <th>Monto</th>
+      <th>Fecha</th>
+      <th>Tipo</th>
+    </tr>
+<!-- muestro las operaciones registradas en la base de datos-->
+    <% operaciones.forEach(operacion => {%>
+      <tr>
+      <td><%= operaciones.Concepto%></td>
+      <td><%= operaciones.Monto%></td>
+      <td><%= operaciones.Fecha%></td>
+      <td><%= operaciones.Tipo%></td>
+    </tr>
+  </table>
+   
+  <% }) %>
+</div>
+
+
+  </body>
+
+
+</html>
