@@ -21,14 +21,16 @@ function createFile(filename) {
 
 let operaciones = [];
 
+let title = "Operaciones";
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "administrador", operaciones });
+  res.render("index", { title: title, operaciones });
 });
 
 /* GET operaciones page.*/
 router.get("/operaciones", function (req, res, next) {
-  res.render("operaciones", { title: "administrador" });
+  res.render("operaciones", { title: title });
 });
 // guardar datos del formulario
 router.post("/", upload.single('somefile'), (req, res, next) => {
@@ -45,10 +47,10 @@ router.post("/", upload.single('somefile'), (req, res, next) => {
   operaciones.push(nuevaOperacion);
   // lectura y escritura de la nueva base de datos en json
   const json_operaciones = JSON.stringify(operaciones);
-  createFile("./database.json");
-  fs.writeFileSync("./database.json", json_operaciones, "utf-8");
+  var pathFile = "./database.json";
+  createFile(pathFile);
+  fs.writeFileSync(pathFile, json_operaciones, "utf-8");
 
-  // trate de ver que manda el formulario pero no renderisa nada solo un objeto vacio
   res.send(req.body);
 });
 
