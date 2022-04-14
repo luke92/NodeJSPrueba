@@ -1,4 +1,4 @@
-# Prueba de NODEJS de un Challenge
+# Prueba de NODEJS escribiendo sobre un archivo JSON
 
 ## Requisitos
 
